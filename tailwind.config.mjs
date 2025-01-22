@@ -11,6 +11,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "hero-main": "url('/img/donas.jpg')",
+        "card-ice" : "url('/img/helado.jpg')", 
+        "card-nuts": "url('/img/nuts.jpg')",
+      }
     },
   },
   plugins: [],
