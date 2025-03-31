@@ -12,7 +12,9 @@ export default {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        "hero-main": "url('/img/donas.jpg')",
+        "hero-main-mobile": "url('/img/hero-main-mobile.png')",
+        "hero-main-desktop":"url('/img/hero-main-desktop.png')",
+        "footer": "url('/img/macarrones.jpg')",
         "card-ice" : "url('/img/helado.jpg')", 
         "card-nuts": "url('/img/nuts.jpg')",
       }
