@@ -49,7 +49,7 @@ export default function Home() {
     <AboutUs/>
     <Servicios/>
     <Videos/>
-    <section className="w-full bg-gray-500 py-20 px-5  text-white text-center">
+    <section className="w-full bg-slate-950 py-20 px-5  text-white text-center">
         <p className="font-bold text-3xl mb-10">¡HAZ TU PEDIDO HOY MISMO!</p>
         <a href="https://wa.me/5544923181/?text=¡Hola!%20Me%20gustaría%20un%20pedido" className="p-5 font-bold text-white bg-red-500 rounded-md">¡Ordenar ahora!</a>
     </section>

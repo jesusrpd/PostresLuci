@@ -15,8 +15,9 @@ export default {
         "hero-main-mobile": "url('/img/hero-main-mobile.png')",
         "hero-main-desktop":"url('/img/hero-main-desktop.png')",
         "footer": "url('/img/macarrones.jpg')",
-        "card-ice" : "url('/img/helado.jpg')", 
-        "card-nuts": "url('/img/nuts.jpg')",
+        "card-postre": "url('/services/postres.jpg')",
+        "card-comida":"url('/services/comida.jpg')",
+        "card-manualidad": "url('/services/manualidad.jpg')"
       }
     },
   },

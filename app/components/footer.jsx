@@ -14,7 +14,6 @@ export default function Footer(){
         </div>
         <hr className="my-5 z-20"/>
         <p className="text-white z-50">Todos los derechos reservados por el autor.</p>
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
     </footer>
     )
 }

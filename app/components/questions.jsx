@@ -24,7 +24,7 @@ export default function Questions (){
     ]
 
     return(
-        <section id="questions" className="container mx-auto px-4 py-8">
+        <section id="questions" className="mx-auto px-4 py-8">
             <h2 className="text-3xl font-bold text-center mb-6">Preguntas Frecuentes</h2>
             <div className="space-y-4">
             {questions.map((q, i) =>(
