@@ -1,19 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Nav() {
-    const menuButtonRef = useRef(null);
-    const menuRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            const nav = document.getElementById("navbar");
+            if (!navRef.current) return;
             if (window.scrollY > 0) {
-                nav?.classList.add("sticky-class");
+                navRef.current.classList.add("sticky-class");
             } else {
-                nav?.classList.remove("sticky-class");
+                navRef.current.classList.remove("sticky-class");
             }
         };
 
@@ -23,28 +23,13 @@ export default function Nav() {
         };
     }, []);
 
-    useEffect(() => {
-        const menuButton = menuButtonRef.current;
-        const menu = menuRef.current;
-
-        if (!menuButton || !menu) return;
-
-        const toggleMenu = (event) => {
-            event.preventDefault();
-            menuButton.classList.toggle("is-active");
-            menu.classList.toggle("is_active");
-            console.log("click");
-        };
-
-        menuButton.addEventListener("click", toggleMenu);
-        
-        return () => {
-            menuButton.removeEventListener("click", toggleMenu);
-        };
-    }, []);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <>
+            {/* Navbar para móviles */}
             <nav className="sticky top-0 flex justify-around items-center w-full bg-black-elote py-5 z-50 md:hidden">
                 <div className="flex items-center logo-mobile">
                     <Image
@@ -57,34 +42,36 @@ export default function Nav() {
                     <p className="text-white font-bold text-2xl">LuciPostres</p>
                 </div>
 
-                <div className="hamburger" ref={menuButtonRef}>
+                {/* Botón hamburguesa */}
+                <div className={`hamburger ${isMenuOpen ? "is-active" : ""}`} onClick={toggleMenu}>
                     <div className="_layer -top"></div>
                     <div className="_layer -mid"></div>
                     <div className="_layer -bottom"></div>
                 </div>
 
-                <ul className="menuppal flex flex-col items-center justify-center" ref={menuRef}>
-                    <li className="w-fit mb-10">
+                {/* Menú móvil */}
+                <ul className={`menuppal ${isMenuOpen ? "is_active flex flex-col items-center justify-center" : "hidden"}`}>
+                    <li className="mb-10 w-fit">
                         <a href="#main" className="text-white text-center font-bold text-2xl">
                             Inicio
                         </a>
                     </li>
-                    <li className="w-fit mb-10">
+                    <li className="mb-10 w-fit">
                         <a href="#aboutus" className="text-white text-center font-bold text-2xl">
                             Sobre Nosotros
                         </a>
                     </li>
-                    <li className="w-fit mb-10">
+                    <li className="mb-10 w-fit">
                         <a href="#servicios" className="text-white text-center font-bold text-2xl">
                             Servicios
                         </a>
                     </li>
-                    <li className="w-fit mb-10">
+                    <li className="mb-10 w-fit">
                         <a href="#questions" className="text-white text-center font-bold text-2xl">
                             Preguntas Frecuentes
                         </a>
                     </li>
-                    <li className="w-fit mb-10">
+                    <li className="mb-10 w-fit">
                         <a href="#videos" className="text-white text-center font-bold text-2xl">
                             Fotos y Videos
                         </a>
@@ -92,7 +79,8 @@ export default function Nav() {
                 </ul>
             </nav>
 
-            <nav id="navbar" className="max-sm:hidden flex justify-center sticky top-0 py-4 items-center z-50">
+            {/* Navbar para pantallas grandes */}
+            <nav ref={navRef} id="navbar" className="max-sm:hidden flex justify-center sticky top-0 py-4 items-center z-50">
                 <ul className="flex">
                     <li className="mx-1 lg:mx-5 font-bold">
                         <a href="#main">Inicio</a>
